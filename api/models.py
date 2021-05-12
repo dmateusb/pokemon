@@ -5,8 +5,7 @@ from django.db import models
 
 class Specie(models.Model):
     name = models.CharField(max_length=30)
-    evolution_chain = models.ForeignKey(
-        'EvolutionChain', on_delete=models.CASCADE)
+    evolution_chain = models.URLField()
 
     def __str__(self):
         return 'id: {}, name: {}, evolution_chain: {}'.format(

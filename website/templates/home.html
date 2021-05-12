@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 {% block content%}
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="basic-addon1">@</span>
+<form action="pokemon"  method="POST">
+    {% csrf_token %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Pokemon ID</span>
+        </div>
+        <input name="id" type="text" class="form-control" placeholder="Ingrese el id del pokemon" aria-label="Username"
+            aria-describedby="basic-addon1">
+        <!-- <a href="{% url 'home' %}" class="btn btn-dark">Hey</a> -->
+        <button type="submit" class="btn btn-dark">Enviar</button>
     </div>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username"
-        aria-describedby="basic-addon1">
-</div>
+</form>
 
 {% endblock %}
