@@ -12,33 +12,12 @@ class Specie(models.Model):
             self.id, self.name, self.evolution_chain)
 
 
-class EvolvesTo(models.Model):
-    chain_link = models.ForeignKey('ChainLink', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return 'id: {}, chain_link: {}'.format(self.id , self.chain_link)
-
-
-class ChainLink(models.Model):
-    evolves_to = models.ForeignKey(EvolvesTo, on_delete=models.CASCADE)
-    specie = models.ForeignKey(Specie, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return 'id: {}. evolves_to: {}, specie: {}'.format(
-            self.id, self.evolves_to, self.specie)
-
-
-class EvolutionChain(models.Model):
-    chain_link = models.ForeignKey(ChainLink, on_delete=models.CASCADE)
-    def __str__(self):
-        return 'id: {}, chain_link: {}'.format(self.id, self.chain_link)
-
 class Pokemon(models.Model):
     id_api = models.IntegerField()
-    specie = models.ForeignKey(Specie, on_delete=models.CASCADE)
-    height = models.IntegerField()
     name = models.CharField(max_length=30)
+    height = models.IntegerField()
     weight = models.IntegerField()
+    specie = models.ForeignKey(Specie, on_delete=models.CASCADE)
 
     def __str__(self):
         return 'id:{} | id_api: {} | specie: {} | height: {} | name: {} | weight: {}'.format(

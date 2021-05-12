@@ -5,7 +5,7 @@ from api.views import *
 router = routers.DefaultRouter()
 router.register(r'stats', StatViewSet)
 router.register(r'pokemons', PokemonViewSet)
-router.register(r'evolution-chains', EvolutionChainViewSet)
+router.register(r'species', SpecieViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

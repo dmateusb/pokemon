@@ -1,0 +1,12 @@
+body{
+    background-color: #B0C4DE;
+    height: 70vh;
+}
+
+#container-center{
+    width: 100%;
+}
+.bd-light{
+    background-color: salmon !important;
+    opacity: 80%;
+}

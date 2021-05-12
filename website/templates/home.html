@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% block title %}
+Radar pokemon
+{% endblock %}
 {% block content%}
-<form action="pokemon"  method="POST">
+{% if user.is_authenticated %}
+<form action={% url 'search' %} method="POST" type="number">
     {% csrf_token %}
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -9,8 +13,10 @@
         <input name="id" type="text" class="form-control" placeholder="Ingrese el id del pokemon" aria-label="Username"
             aria-describedby="basic-addon1">
         <!-- <a href="{% url 'home' %}" class="btn btn-dark">Hey</a> -->
-        <button type="submit" class="btn btn-dark">Enviar</button>
+        <button type="submit" class="btn btn-light">Enviar</button>
     </div>
 </form>
-
+{% else %}
+<p>You are not logged, please, <a href="/login">login</a></p>
+{% endif %}
 {% endblock %}

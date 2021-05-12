@@ -7,5 +7,5 @@ router = routers.DefaultRouter()
 urlpatterns = [
     path('', login), 
     path('home/', home, name="home"),
-    path('home/pokemon', home, name="pokemon"),
+    path('home/search', search, name="search"),
 ]

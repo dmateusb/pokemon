@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}
+Radar pokémon
+{% endblock %}
+{% block content%}
+<form method="GET">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Pokemon ID</span>
+        </div>
+        <input name="id" type="text" class="form-control" placeholder="Ingrese el id del pokemon" aria-label="Username"
+            aria-describedby="basic-addon1">
+        <!-- <a href="{% url 'home' %}" class="btn btn-dark">Hey</a> -->
+        <button type="submit" class="btn btn-dark">Enviar</button>
+    </div>
+</form>
+<table class="table table-warning">
+    <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Height</th>
+            <th scope="col">Weight</th>
+            <th scope="col">Specie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">{{id_api}}</th>
+            <td>{{name}}</td>
+            <td>{{height}}</td>
+            <td>{{weight}}</td>
+            <td>{{specie}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-warning">
+    <thead>
+        <tr>
+            {% for columna in columnas%}
+            <th scope="col">{{columna}}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for evolution in evolution_chain%}
+            <th scope="row">{{evolution}}</th>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

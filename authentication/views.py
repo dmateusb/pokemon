@@ -7,7 +7,7 @@ def registerView(response):
         form = RegisterForm(response.POST)
         if form.is_valid():
             form.save()
-        return redirect("home")
+        return redirect("/login")
     else:
         form = RegisterForm() 
     
